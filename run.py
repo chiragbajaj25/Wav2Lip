@@ -1,11 +1,17 @@
+import uuid
 from utils.img_vid import img_vid
 from utils.txt_audio import txt_audio
 
 imgs = [int(x) for x in input("Enter multiple comma seperated image numbers\n").split(', ')]
 img_vid(imgs)
 audio_text = input("Enter text to be spoken\n")
-audio_name = input("Enter audio name\n")
-audio_path = txt_audio(audio_text, audio_name)
+if audio_text:
+	audio_name = input("Enter audio name\n")
+	if not audio_name:
+		audio_name = str(uuid.uuid4())
+	audio_path = txt_audio(audio_text, audio_name)
+else:
+	audio_path = f"/content/gdrive/MyDrive/NFT_Art/Audio/matrix.wav"
 
 from os import listdir, path
 import numpy as np
