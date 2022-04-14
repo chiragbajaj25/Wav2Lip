@@ -280,7 +280,7 @@ def main():
 	subprocess.call(command, shell=platform.system() != 'Windows')
 
 for img in imgs:
-    args = parser.parse_args()
+	args = parser.parse_args()
 	args.img_size = 96
 
 	args.face = f"/content/gdrive/MyDrive/NFT_Art/input_videos/image{img}.jpg"
@@ -289,7 +289,7 @@ for img in imgs:
 
 	args.checkpoint_path = "/content/Wav2Lip/checkpoints/wav2lip_gan.pth"
 	#args.face = f"/content/gdrive/MyDrive/NFT_Art/input_videos/image{img}.mp4"
-    args.audio = audio_path
-    args.outfile = f"/content/gdrive/MyDrive/NFT_Art/output_videos/image{img}.mp4"
-    main()
+	args.audio = audio_path
+	args.outfile = f"/content/gdrive/MyDrive/NFT_Art/output_videos/image{img}.mp4"
+	main()
 
