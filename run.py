@@ -59,16 +59,6 @@ parser.add_argument('--rotate', default=False, action='store_true',
 parser.add_argument('--nosmooth', default=False, action='store_true',
 					help='Prevent smoothing face detections over a short temporal window')
 
-args = parser.parse_args()
-args.img_size = 96
-
-if os.path.isfile(args.face) and args.face.split('.')[1] in ['jpg', 'png', 'jpeg']:
-	args.static = True
-
-args.checkpoint_path = "/content/Wav2Lip/checkpoints/wav2lip_gan.pth"
-
-
-
 def get_smoothened_boxes(boxes, T):
 	for i in range(len(boxes)):
 		if i + T > len(boxes):
@@ -290,7 +280,15 @@ def main():
 	subprocess.call(command, shell=platform.system() != 'Windows')
 
 for img in imgs:
-    args.face = f"/content/gdrive/MyDrive/NFT_Art/input_videos/image{img}.mp4"
+    args = parser.parse_args()
+	args.img_size = 96
+
+	args.face = f"/content/gdrive/MyDrive/NFT_Art/input_videos/image{img}.jpg"
+	if os.path.isfile(args.face) and args.face.split('.')[1] in ['jpg', 'png', 'jpeg']:
+		args.static = True
+
+	args.checkpoint_path = "/content/Wav2Lip/checkpoints/wav2lip_gan.pth"
+	#args.face = f"/content/gdrive/MyDrive/NFT_Art/input_videos/image{img}.mp4"
     args.audio = audio_path
     args.outfile = f"/content/gdrive/MyDrive/NFT_Art/output_videos/image{img}.mp4"
     main()
