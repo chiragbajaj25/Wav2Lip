@@ -283,7 +283,7 @@ for img in imgs:
 	args = parser.parse_args()
 	args.img_size = 96
 
-	args.face = f"/content/gdrive/MyDrive/NFT_Art/input_videos/image{img}.jpg"
+	args.face = f"/content/gdrive/MyDrive/NFT_Art/Images/image{img}.jpg"
 	if os.path.isfile(args.face) and args.face.split('.')[1] in ['jpg', 'png', 'jpeg']:
 		args.static = True
 
