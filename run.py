@@ -293,7 +293,7 @@ for img in imgs:
 	if os.path.isfile(args.face) and args.face.split('.')[1] in ['jpg', 'png', 'jpeg']:
 		args.static = True
 
-	args.checkpoint_path = "/content/Wav2Lip/checkpoints/wav2lip_gan.pth"
+	args.checkpoint_path = "/content/gdrive/MyDrive/NFT_Art/wav2lip_gan.pth"
 	#args.face = f"/content/gdrive/MyDrive/NFT_Art/input_videos/image{img}.mp4"
 	args.audio = audio_path
 	args.outfile = f"/content/gdrive/MyDrive/NFT_Art/output_videos/image{img}.mp4"
